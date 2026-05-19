@@ -128,11 +128,89 @@ class AuthController extends Controller
 
     public function googleLogin(Request $request)
     {
-        // For Google login, the frontend sends { token }
-        // We'll mock the verification for now or use socialite later.
-        // Assuming the Node logic didn't fully implement backend verification yet
-        // Let's implement a basic handler to prevent errors
-        return $this->sendResponse(400, false, 'Google login verification pending implementation');
+        $token = $request->input('token');
+        $type = $request->input('type');
+
+        if (!$token) {
+            return $this->sendResponse(400, false, 'Token is required');
+        }
+
+        try {
+            $email = null;
+            $name = null;
+            $picture = null;
+
+            if ($type === 'access_token') {
+                $response = \Illuminate\Support\Facades\Http::withHeaders([
+                    'Authorization' => 'Bearer ' . $token,
+                ])->get('https://www.googleapis.com/oauth2/v3/userinfo');
+
+                if ($response->failed()) {
+                    return $this->sendResponse(400, false, 'Failed to fetch user info from Google');
+                }
+
+                $payload = $response->json();
+                $email = $payload['email'] ?? null;
+                $name = $payload['name'] ?? null;
+                $picture = $payload['picture'] ?? null;
+            } else {
+                $response = \Illuminate\Support\Facades\Http::get('https://oauth2.googleapis.com/tokeninfo', [
+                    'id_token' => $token,
+                ]);
+
+                if ($response->failed()) {
+                    return $this->sendResponse(400, false, 'Google ID Token validation failed');
+                }
+
+                $payload = $response->json();
+                $email = $payload['email'] ?? null;
+                $name = $payload['name'] ?? null;
+                $picture = $payload['picture'] ?? null;
+            }
+
+            if (!$email) {
+                return $this->sendResponse(400, false, 'Google login failed: email not retrieved');
+            }
+
+            $user = User::where('email', $email)->first();
+
+            if ($user) {
+                if (empty($user->profilePicture)) {
+                    $user->profilePicture = $picture;
+                    $user->save();
+                }
+
+                $jwtToken = $user->createToken('auth_token')->plainTextToken;
+
+                return $this->sendResponse(200, true, 'Login successful', [
+                    'token' => $jwtToken,
+                    'user' => $this->formatUser($user)
+                ]);
+            } else {
+                $username = preg_replace('/\s+/', '', $name);
+                $userExists = User::where('username', $username)->first();
+                if ($userExists) {
+                    $username = $username . rand(1000, 9999);
+                }
+
+                $user = User::create([
+                    'username' => $username,
+                    'email' => $email,
+                    'authProvider' => 'google',
+                    'profilePicture' => $picture,
+                ]);
+
+                $jwtToken = $user->createToken('auth_token')->plainTextToken;
+
+                return $this->sendResponse(200, true, 'Registration successful', [
+                    'token' => $jwtToken,
+                    'user' => $this->formatUser($user)
+                ]);
+            }
+
+        } catch (\Exception $e) {
+            return $this->sendResponse(401, false, 'Google Authentication Failed: ' . $e->getMessage());
+        }
     }
 
     public function checkAuth(Request $request)
