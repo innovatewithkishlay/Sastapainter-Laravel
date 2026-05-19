@@ -34,5 +34,24 @@ Route::group(['prefix' => 'v1'], function () {
             Route::post('/my-bookings/delete/{id}', [MainController::class, 'deleteBooking']);
             Route::post('/reviews', [MainController::class, 'submitReview']);
         });
+        
+        // Protected Admin Routes (Matches Node admin.js)
+        Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
+            Route::get('/stats', [\App\Http\Controllers\AdminController::class, 'getDashboardStats']);
+            
+            Route::get('/users', [\App\Http\Controllers\AdminController::class, 'getUsers']);
+            Route::delete('/users/{id}', [\App\Http\Controllers\AdminController::class, 'deleteUser']);
+            
+            Route::get('/bookings', [\App\Http\Controllers\AdminController::class, 'getBookings']);
+            Route::put('/bookings/{id}/status', [\App\Http\Controllers\AdminController::class, 'updateBookingStatus']);
+            Route::put('/bookings/{id}/assign', [\App\Http\Controllers\AdminController::class, 'assignPainter']);
+            
+            Route::get('/site-visits', [\App\Http\Controllers\AdminController::class, 'getSiteVisits']);
+            Route::put('/site-visits/{id}/status', [\App\Http\Controllers\AdminController::class, 'updateSiteVisitStatus']);
+            
+            Route::get('/painters', [\App\Http\Controllers\AdminController::class, 'getPainters']);
+            Route::post('/painters', [\App\Http\Controllers\AdminController::class, 'addPainter']);
+            Route::delete('/painters/{id}', [\App\Http\Controllers\AdminController::class, 'deletePainter']);
+        });
     });
 });
