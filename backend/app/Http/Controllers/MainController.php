@@ -36,7 +36,7 @@ class MainController extends Controller
     {
         // Cache for 5 mins (300 seconds)
         $services = Cache::remember('services_list', 300, function () {
-            return Service::all();
+            return Service::all()->toArray();
         });
         return $this->sendResponse(200, true, 'Services fetched', ['services' => $services]);
     }
@@ -222,7 +222,8 @@ class MainController extends Controller
                 ->where('isPublic', true)
                 ->orderBy('created_at', 'desc')
                 ->limit(6)
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         return $this->sendResponse(200, true, 'Public reviews fetched', ['reviews' => $reviews]);
