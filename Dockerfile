@@ -2,7 +2,7 @@ FROM php:8.2-cli
 
 # Install dependencies and PostgreSQL drivers
 RUN apt-get update && apt-get install -y libpq-dev zip unzip git \
-    && docker-php-ext-install pdo pdo_pgsql
+    && docker-php-ext-install pdo_pgsql
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
