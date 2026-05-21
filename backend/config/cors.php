@@ -19,7 +19,13 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:80', 'http://localhost'],
+    'allowed_origins' => [
+        'http://localhost:5173', 
+        'http://localhost:5174', 
+        'https://anandeshwar.sastapainter.in',
+        'https://sastapainter.in',
+        env('FRONTEND_URL', 'http://localhost:5173')
+    ],
 
     'allowed_origins_patterns' => [],
 
