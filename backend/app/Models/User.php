@@ -19,6 +19,14 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable, HasUuids;
 
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['_id'] = $this->id;
+        $array['createdAt'] = $this->created_at;
+        return $array;
+    }
+
     /**
      * Get the attributes that should be cast.
      *

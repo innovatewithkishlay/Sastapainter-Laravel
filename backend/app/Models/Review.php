@@ -9,6 +9,14 @@ class Review extends Model
 {
     use HasUuids;
 
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['_id'] = $this->id;
+        $array['createdAt'] = $this->created_at;
+        return $array;
+    }
+
     protected $fillable = [
         'user_id',
         'inquiry_id',

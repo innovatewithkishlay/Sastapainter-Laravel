@@ -17,12 +17,12 @@ const GoogleLoginButton = ({ text = "Continue with Google" }) => {
                 const res = await api.post('/auth/google', { token: accessToken, type: 'access_token' });
 
                 if (res.data.success) {
-                    setUser(res.data.user);
-                    navigate('/');
+                    localStorage.setItem('token', res.data.data.token);
+                    setUser(res.data.data.user);
+                    navigate(res.data.data.user?.isAdmin ? '/admin/dashboard' : '/');
                 }
             } catch (err) {
                 console.error('Google Login Error:', err);
-                // Handle error (toast or alert)
             }
         },
         onError: () => console.log('Google Login Failed'),
