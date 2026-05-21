@@ -19,5 +19,5 @@ RUN composer install --no-dev --optimize-autoloader
 # Give Laravel permission to write to its storage folders
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Start the Laravel server on the port Render gives us
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Start the Laravel server and run migrations automatically since free tier has no shell
+CMD php artisan migrate --seed --force && php artisan serve --host=0.0.0.0 --port=$PORT
