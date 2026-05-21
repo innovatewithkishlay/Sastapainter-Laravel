@@ -40,6 +40,12 @@ class DatabaseSeeder extends Seeder
                 'category' => 'Exterior'
             ],
             [
+                'name' => 'Rental Painting',
+                'description' => 'Quick and affordable painting solutions for rental properties.',
+                'image' => '/images/rental.jpg',
+                'category' => 'Interior'
+            ],
+            [
                 'name' => 'Waterproofing',
                 'description' => 'Advanced waterproofing solutions for a leak-free home.',
                 'image' => '/images/waterproofing-banner.avif',
@@ -50,6 +56,12 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Enhance the natural beauty of your wooden furniture and doors.',
                 'image' => '/images/wood-finishes-banner.avif',
                 'category' => 'Wood'
+            ],
+            [
+                'name' => 'Texture Painting',
+                'description' => 'Add depth and character to your walls with unique textures.',
+                'image' => '/images/texture.jpg',
+                'category' => 'Texture'
             ]
         ];
 
