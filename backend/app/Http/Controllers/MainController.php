@@ -64,7 +64,8 @@ class MainController extends Controller
         }
 
         $inquiry = new Inquiry($request->all());
-        $inquiry->user_id = $request->user() ? $request->user()->id : null;
+        $user = auth('sanctum')->user();
+        $inquiry->user_id = $user ? $user->id : null;
         $inquiry->save();
 
         return $this->sendResponse(201, true, 'Booking submitted successfully');
@@ -82,11 +83,12 @@ class MainController extends Controller
             return $this->sendResponse(400, false, 'Please fill in all fields correctly.');
         }
 
+        $user = auth('sanctum')->user();
         $siteVisit = new SiteVisit([
             'name' => $request->name,
             'phone' => $request->phone,
             'city' => $request->city,
-            'user_id' => $request->user() ? $request->user()->id : null,
+            'user_id' => $user ? $user->id : null,
         ]);
         $siteVisit->save();
 
