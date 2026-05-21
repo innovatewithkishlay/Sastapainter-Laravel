@@ -20,7 +20,7 @@ const BlogSection = () => {
 
                     <article style={{ lineHeight: '1.8', fontSize: '1.1rem' }}>
                         <p style={{ marginBottom: '1.5rem' }}>
-                            SastaPainter is your go-to destination for hassle-free Home Painting Service. At SastaPainter, we understand the significance of turning houses into homes through the artistry of house painting. Our dedicated team of well-trained painters, brought to you by SastaPainter Solutions Pvt Ltd, is committed to transforming your living spaces into vibrant, personalised sanctuaries.
+                            SastaPainter is your go-to destination for hassle-free Home Painting Service. At SastaPainter, we understand the significance of turning houses into homes through the artistry of house painting. Our dedicated team of well-trained painters, brought to you by SastaPainter in Association with Shree Baba Ananddeswar enterprises, is committed to transforming your living spaces into vibrant, personalised sanctuaries.
                         </p>
                         <p style={{ marginBottom: '1.5rem' }}>
                             Say goodbye to the traditional complexities of booking painters! With SastaPainter, the process is as easy as a brushstroke. Our user-friendly platform allows you to book a painter online effortlessly, ensuring a seamless experience from selection to payment. We pride ourselves in seamless online painter services, providing you with an affordable and efficient solution for all your home painting needs.

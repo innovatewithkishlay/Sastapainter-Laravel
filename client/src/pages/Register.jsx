@@ -67,6 +67,9 @@ const Register = () => {
                 <div className="auth-overlay"></div>
                 <div className="auth-brand-content">
                     <h1>Create Your SastaPainter Account</h1>
+                    <h4 style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 400, marginTop: '-10px', marginBottom: '20px', letterSpacing: '0.5px' }}>
+                        in association with Shree Baba Ananddeswar enterprises
+                    </h4>
                     <p>Book professional painting services with confidence. Transform your home today.</p>
                 </div>
             </motion.div>

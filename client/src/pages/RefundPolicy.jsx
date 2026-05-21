@@ -22,7 +22,7 @@ const RefundPolicy = () => {
                     <section className="refund-section">
                         <h2>1. Overview</h2>
                         <p>
-                            At SastaPainter, we strive to ensure that every painting project is completed to your satisfaction.
+                            At SastaPainter in Association with Shree Baba Ananddeswar enterprises, we strive to ensure that every painting project is completed to your satisfaction.
                             However, we understand that circumstances may change. This Refund & Cancellation Policy outlines the conditions under which you may cancel your booking and the eligibility criteria for refunds.
                         </p>
                         <p>

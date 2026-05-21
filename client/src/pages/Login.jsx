@@ -111,6 +111,9 @@ const Login = () => {
                 <div className="auth-overlay"></div>
                 <div className="auth-brand-content">
                     <h1>Welcome Back to SastaPainter</h1>
+                    <h4 style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 400, marginTop: '-10px', marginBottom: '20px', letterSpacing: '0.5px' }}>
+                        in association with Shree Baba Ananddeswar enterprises
+                    </h4>
                     <p>Trusted painters. Beautiful homes. Hassle-free experience.</p>
                 </div>
             </motion.div>

@@ -10,7 +10,7 @@ import { FaRobot, FaPaperPlane, FaTimes, FaCommentDots } from 'react-icons/fa';
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 // 1. Define your website's knowledge base
 const WEBSITE_CONTEXT = `
-You are the official AI support assistant for **SastaPainter (also known as Sasta Painter)**,
+You are the official AI support assistant for **SastaPainter in Association with Shree Baba Ananddeswar enterprises**,
 a professional painting and home improvement service provider in India.
 
 Your role is to politely assist users, answer service-related questions,

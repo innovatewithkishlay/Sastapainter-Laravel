@@ -65,30 +65,43 @@ const GlobalLoader = () => {
                         />
 
                         {/* Text Centerpiece */}
-                        <motion.h2
-                            animate={{
-                                opacity: [0.6, 1, 0.6],
-                                scale: [0.98, 1, 0.98]
-                            }}
-                            transition={{
-                                duration: 2.5,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            style={{
-                                fontFamily: "'Outfit', sans-serif",
-                                fontSize: '1.25rem',
-                                fontWeight: '600',
-                                color: '#1e293b', // Slate-800
-                                margin: 0,
-                                letterSpacing: '0.2em',
-                                textTransform: 'uppercase',
-                                position: 'relative',
-                                zIndex: 10
-                            }}
-                        >
-                            SastaPainter
-                        </motion.h2>
+                        <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
+                            <motion.h2
+                                animate={{
+                                    opacity: [0.6, 1, 0.6],
+                                    scale: [0.98, 1, 0.98]
+                                }}
+                                transition={{
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                style={{
+                                    fontFamily: "'Outfit', sans-serif",
+                                    fontSize: '1.25rem',
+                                    fontWeight: '600',
+                                    color: '#1e293b', // Slate-800
+                                    margin: 0,
+                                    letterSpacing: '0.2em',
+                                    textTransform: 'uppercase',
+                                }}
+                            >
+                                SastaPainter
+                            </motion.h2>
+                            <motion.div
+                                animate={{ opacity: [0.4, 0.8, 0.4] }}
+                                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                                style={{
+                                    fontSize: '0.55rem',
+                                    color: '#64748b',
+                                    marginTop: '4px',
+                                    fontWeight: '600',
+                                    letterSpacing: '0.5px'
+                                }}
+                            >
+                                in association with<br/>Shree Baba Ananddeswar enterprises
+                            </motion.div>
+                        </div>
                     </div>
                 </motion.div>
             )}

@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
                     <section className="privacy-section">
                         <h2>1. Overview</h2>
                         <p>
-                            SastaPainter ("us", "we", or "our") operates the website and provides painting and waterproofing services.
+                            SastaPainter in Association with Shree Baba Ananddeswar enterprises ("us", "we", or "our") operates the website and provides painting and waterproofing services.
                             This Privacy Policy informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
                         </p>
                         <p>

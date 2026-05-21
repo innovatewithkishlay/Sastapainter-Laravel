@@ -115,7 +115,7 @@ const Footer = () => {
                             Sasta<span>Painter</span>
                         </Link>
                         <p className="brand-desc">
-                            Transforming spaces with color and care. SastaPainter is India's leading technology-first painting service platform.
+                            Transforming spaces with color and care. SastaPainter in Association with Shree Baba Ananddeswar enterprises is India's leading technology-first painting service platform.
                             We combine expert craftsmanship with premium materials to deliver
                             stunning, durable, and affordable results for your home and office.
                         </p>
@@ -238,7 +238,7 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="footer-container bottom-container">
                     <div className="copyright-info">
-                        <p>&copy; {new Date().getFullYear()} SastaPainter Technologies Pvt. Ltd. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} SastaPainter in Association with Shree Baba Ananddeswar enterprises. All rights reserved.</p>
                         <p className="cin-text">CIN: U74999DL2023PTC123456 | ISO 9001:2015 Certified Company</p>
                     </div>
                     <div className="legal-links">
