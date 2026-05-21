@@ -228,4 +228,23 @@ class MainController extends Controller
 
         return $this->sendResponse(200, true, 'Public reviews fetched', ['reviews' => $reviews]);
     }
+
+    // Legacy admin routes — matches Node.js admin.js
+    public function getInquiries(Request $request)
+    {
+        $inquiries = Inquiry::orderBy('created_at', 'desc')->get();
+        return $this->sendResponse(200, true, 'Inquiries fetched', ['inquiries' => $inquiries]);
+    }
+
+    public function updateInquiryStatus(Request $request, $id)
+    {
+        $inquiry = Inquiry::find($id);
+        if (!$inquiry) {
+            return $this->sendResponse(404, false, 'Inquiry not found');
+        }
+        $inquiry->status = $request->input('status');
+        $inquiry->save();
+        return $this->sendResponse(200, true, 'Inquiry status updated');
+    }
 }
+
